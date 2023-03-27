@@ -1,0 +1,68 @@
+{% extends 'design.html' %} {% block body %}
+
+<main class="main">
+    <section>
+        <h1 class="h1">Add New Entry</h1>
+        <form action="/add-todo" class="form" method="POST">
+
+
+            <p class="form__input">
+                <label for="entry" class="form__label">Enter Topic For To-Do</label>
+                <input type="text" name="title" id="entry" class="form__textarea"></text>
+            </p>
+            <p class="form__input">
+                <label for="entry" class="form__label">Enter Description </label>
+                <textarea name="description" id="entry" cols="" rows="" class="form__textarea"></textarea>
+            </p>
+
+            <p class="form__input error"> {{ message }}
+            </p>
+
+
+
+            <button type="submit" class="form__submit">Add To-do</button>
+
+        </form>
+
+    </section>
+
+
+
+</main>
+
+
+
+
+<main class="previous_todos">
+
+
+    <section>
+        <h1 class="h1">Previous Todos</h1>
+        <div class="entry">
+
+
+
+
+            <ul>
+
+                {% for todo in todos %}
+                <li class="li todo_show">
+                    <h2 class="entry__title">{{ todo['title'] }} </h2>
+                    <p>{{ todo['description'] }}</p>
+                    <button class="update_delete"><a href="/update?id={{ todo['_id']}}">Update</a></button>
+                    <button class="update_delete"><a href="/delete?id={{ todo['_id']}}">Delete</a></button>
+                </li>
+                {% endfor %}
+                <ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+{% endblock%}

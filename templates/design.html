@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+
+        <div class="navbar__brand">
+            <img src="https://img.icons8.com/external-icongeek26-flat-icongeek26/256/external-To-Do-List-content-edition-icongeek26-flat-icongeek26.png" alt="" class="navbar__logo">To Do List
+
+
+        </div>
+
+        <ul class="navbar__navigation">
+            <li class="navbar__navigation-item"> <input type="text" id="search" class="form__textarea" placeholder="Search"> </text>
+            </li>
+            <li class="navbar__navigation-item"><a href="{{link}}" class="navbar__link">{{loginorlogout}}</a></li>
+
+        </ul>
+
+
+    </header>
+
+    {% block body %} {% endblock %}
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer__content">
+            <section class="left">
+
+                <a class="footer__item">Made By Shubham Rajput.</a>
+                <!--<a class="footer__item">Check Out my Other Projects.</a>-->
+            </section>
+            <section class="right">
+                <div class="footer__column">
+                    <a class="footer__item">&copy; All Right Reserved</a>
+
+
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+        document.getElementById('search').addEventListener('keyup', function() {
+            console.log('key up there')
+            let ht = document.getElementsByClassName('todo_show')
+            if (ht.length == 0) {
+                console.log('indide if')
+                return;
+            } else {
+                let s = document.getElementById('search').value;
+                console.log(s)
+                console.log('inside else')
+
+                for (let i = 0; i < ht.length; i++) {
+                    let s1 = ht[i].children[0].innerText
+                    let s2 = ht[i].children[1].innerText
+                    if (s1.includes(s) || s2.includes(s)) {
+                        ht[i].style.display = 'block'
+                    } else {
+                        ht[i].style.display = 'none'
+                    }
+                }
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+{% extends 'design.html' %} {% block body %}
+
+
+<main class="main">
+
+
+    <section style="margin-bottom: 160px;">
+        <h1 class="h1">Update To-Do</h1>
+        <form action="/update" class="form" method="POST">
+
+
+            <p class="form__input">
+                <label for="entry" class="form__label">Enter Topic For To-Do</label>
+                <input type="text" name="title" id="entry" class="form__textarea" value="{{todo[0]['title']}}"> </text>
+            </p>
+            <p class="form__input">
+                <label for="entry" class="form__label">Enter Description </label>
+                <textarea name="description" id="entry" cols="" rows="" class="form__textarea">{{todo[0]['description']}}</textarea>
+            </p>
+
+            <p class="form__input error"> {{ message }}
+            </p>
+            <input type="hidden" name="id" value="{{todo[0]['_id']}}">
+
+
+            <button type="submit" class="form__submit">Update To-do</button>
+
+        </form>
+
+    </section>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+{% endblock %}

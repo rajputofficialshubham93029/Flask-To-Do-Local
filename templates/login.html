@@ -1,0 +1,45 @@
+{% extends 'design.html' %} {% block body %}
+
+
+<main class="main">
+
+
+    <section style="margin-bottom: 190px;">
+        <h1 class="h1">Login</h1>
+        <form action="/" class="form" method="POST">
+
+
+            <p class="form__input">
+                <label for="entry" class="form__label">Enter Username</label>
+                <input type="text" name="username" id="entry" class="form__textarea"> </text>
+            </p>
+            <p class="form__input">
+                <label for="entry" class="form__label">Enter Password </label>
+                <input type="password" name="password" id="entry" class="form__textarea"> </text>
+            </p>
+
+            <p class="form__input error"> {{ message }}
+            </p>
+
+
+
+            <button type="submit" class="form__submit">Login</button>
+            <a href="/register" style="padding-bottom: 5px;">Register New User</a>
+
+        </form>
+
+    </section>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+{% endblock %}
